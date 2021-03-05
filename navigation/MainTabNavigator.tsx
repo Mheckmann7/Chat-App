@@ -6,9 +6,10 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import ChatsScreen from '../screens/ChatsScreen';
+import TabTwoScreen from '../screens/ChatsScreen';
 import { MainTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+
 
 const MainTab = createMaterialTopTabNavigator<MainTabParamList>();
 
@@ -35,7 +36,7 @@ export default function MainTabNavigator() {
       }}>
       <MainTab.Screen
         name="Chats"
-        component={TabOneNavigator}
+        component={ChatsScreen}
       />
       <MainTab.Screen
         name="Status"
