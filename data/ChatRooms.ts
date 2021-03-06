@@ -12,6 +12,6 @@ export default [{
     lastMessage: {
         id: 'm1',
         content: 'Test message',
-        createdAt: '2020-3-3'
+        createdAt: '2020-11-05T08:15:30-05:00',
     }
 }]
