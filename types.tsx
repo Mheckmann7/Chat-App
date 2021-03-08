@@ -26,7 +26,8 @@ export type User = {
 export type Message = {
   id: String;
   content: string;
-  createdAt: string; 
+  createdAt: string;
+  user: User;
 
 }
 

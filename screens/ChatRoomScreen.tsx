@@ -8,12 +8,12 @@ import ChatMessage from '../components/ChatMessage';
 const ChatRoomScreen = () => {
 
     const route = useRoute();
-    console.log(route.params)
 
     return (
         <FlatList
             data={chatRoomData.messages}
-            renderItem={({ item }) => <ChatMessage message={item} /> }
+            renderItem={({ item }) => <ChatMessage message={item} />}
+            inverted
         />
     );
 }
