@@ -8,6 +8,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ChatsScreen from '../screens/ChatsScreen';
 import TabTwoScreen from '../screens/ChatsScreen';
+import ContactsScreen from '../screens/ContactsScreen';
 import { MainTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 
@@ -45,7 +46,7 @@ export default function MainTabNavigator() {
       />
       <MainTab.Screen
         name="Contacts"
-        component={TabTwoNavigator}
+        component={ContactsScreen}
       />
     </MainTab.Navigator>
   );
@@ -59,19 +60,8 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
 
-function TabOneNavigator() {
-  return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
-      />
-    </TabOneStack.Navigator>
-  );
-}
+
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 

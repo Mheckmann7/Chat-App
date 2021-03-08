@@ -10,8 +10,7 @@ const InputBox = () => {
     const [message, setMessage] = useState('');
     
     const onPress = () => {
-        setMessage('')
-        console.log('Sent')
+        setMessage('');
         
     }
 
