@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     time: {
         alignSelf: 'flex-end',
-        color: 'lightgrey',
+        color: 'grey',
     }
 })
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { Message } from '../../types';
-import moment from 'moment'; 
+import moment from 'moment';
 import styles from './style';
 
 export type ChatMessageProps = {
@@ -19,7 +19,7 @@ const ChatMessage = (props: ChatMessageProps) => {
         <View style={styles.container}>
             <View style={[
                 styles.messageBox, {
-                    backgroundColor: isMyMessage() ? 'blue' : 'gray',
+                    backgroundColor: isMyMessage() ? 'white' : '#C9C2E8',
                     marginLeft: isMyMessage() ? 50 : 0,
                     marginRight: isMyMessage() ? 0 : 50, 
                     }
