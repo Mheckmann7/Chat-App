@@ -7,7 +7,6 @@ import ContactListItem from '../components/ContactListItem';
 
 import users from '../data/Users'
 import { FlatList } from 'react-native-gesture-handler';
-import NewMessageButton from '../components/NewMessageButton';
 
 export default function Contacts() {
 
@@ -20,7 +19,6 @@ export default function Contacts() {
         renderItem={({ item }) => <ContactListItem user={item} />}
         keyExtractor={(item) => item.id}
       />
-      <NewMessageButton /> 
     </View>
   );
 }

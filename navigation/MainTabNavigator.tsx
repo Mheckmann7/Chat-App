@@ -44,10 +44,10 @@ export default function MainTabNavigator() {
         component={TabTwoNavigator}
 
       />
-      <MainTab.Screen
+      {/* <MainTab.Screen
         name="Contacts"
         component={ContactsScreen}
-      />
+      /> */}
     </MainTab.Navigator>
   );
 }
