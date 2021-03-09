@@ -3,11 +3,11 @@ export default {
     users: [{
         id: 'u1',
         name: 'User One',
-        imageUri: 'TestImg',
+        imageUri: 'https://picsum.photos/200',
     }, {
         id: 'u2',
         name: 'User Two',
-        imageUri: 'TestImg2',
+        imageUri: 'https://picsum.photos/200',
     }],
     messages: [{
         id: 'm1',
