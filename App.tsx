@@ -13,11 +13,10 @@ import {
   graphqlOperation
 } from 'aws-amplify'
 import { getUser } from './src/graphql/queries';
-import { createUser } from './src/graphql/queries';
+import { createUser } from './src/graphql/mutations';
 
 import Amplify from 'aws-amplify'
 import config from './aws-exports'
-import { createIconSetFromFontello } from '@expo/vector-icons';
 Amplify.configure(config)
 
 
