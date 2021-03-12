@@ -12,6 +12,8 @@ import ContactsScreen from '../screens/ContactsScreen';
 import { MainTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 
+
+
 const MainTab = createMaterialTopTabNavigator<MainTabParamList>();
 
 export default function MainTabNavigator() {
@@ -73,6 +75,7 @@ function TabTwoNavigator() {
         component={TabTwoScreen}
         options={{ headerTitle: 'Tab Two Title' }}
       />
+  
     </TabTwoStack.Navigator>
   );
 }

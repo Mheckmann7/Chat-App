@@ -19,6 +19,7 @@ const ContactListItem = (props: ContactListItemProps) => {
     
     const onClick = async () => {
         try {
+        // TODO check if user already has a chat room with the other user
             const newChatRoomData = await API.graphql(
                 graphqlOperation(
                     createChatRoom, {
@@ -26,7 +27,7 @@ const ContactListItem = (props: ContactListItemProps) => {
                     }
                 )
             )
-
+            
             if (!newChatRoomData.data) {
                 console.log("Failed to create")
                 return 
@@ -74,7 +75,8 @@ const ContactListItem = (props: ContactListItemProps) => {
                 <Image source={{ uri: user.imageUri }} style={styles.avatar} />
      
                 <View style={styles.midContainer}> 
-                    <Text style={styles.userName}>{user.name}</Text>
+                        <Text style={styles.userName}>{user.name}</Text>
+                        <Text>{user.status}</Text>
                 </View>
             </View>
             </View>

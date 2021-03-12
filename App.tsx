@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import { View, Text } from 'react-native'
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
-import { withAuthenticator } from 'aws-amplify-react-native';
+import { StyleSheet } from 'react-native';
+import { withAuthenticator} from 'aws-amplify-react-native';
 
 import {
   Auth,
@@ -28,6 +29,15 @@ function App() {
     let num = Math.floor(Math.random() * Math.floor(100))
     return 'https://picsum.photos/200?random=' + num
  
+  }
+  function signOut() {
+    Auth.signOut()
+      .then(() => {
+        props.onStateChange('signedOut', null);
+      })
+      .catch(err => {
+        console.log('err: ', err)
+      })
   }
   // Run only when app is first mounted
   useEffect(() => {
@@ -72,9 +82,19 @@ function App() {
       <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
+        <Text style={styles.container}onPress={signOut}>Sign Out</Text>
       </SafeAreaProvider>
+      
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 20,
+    backgroundColor: 'purple'
+  },
+});
+
 
 export default withAuthenticator(App)

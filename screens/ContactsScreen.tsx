@@ -11,6 +11,7 @@ import { listUsers } from '../src/graphql/queries';
 import { FlatList } from 'react-native-gesture-handler';
 import { graphqlOperation } from '@aws-amplify/api-graphql';
 
+
 export default function ContactsScreen() {
 
   const [users, setUsers] = useState([]);
