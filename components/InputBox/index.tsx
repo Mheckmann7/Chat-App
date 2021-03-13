@@ -23,17 +23,18 @@ const InputBox = (props) => {
     
     const onPress = async () => {
         try {
-            await API.graphql(
+            const newMessageData = await API.graphql(
                 graphqlOperation(
                     createMessage, {
                         input: {
-                            constnent: message,
+                            content: message,
                             userID: myUserId,
                             chatRoomID: chatRoomID,
                         }
                     }
                 )
             )
+            console.log(newMessageData)
         } catch (error) {
             console.log(error);
         }

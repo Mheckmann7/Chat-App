@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { View, Text } from 'react-native'
+import { View, Text, Button, Touchable } from 'react-native'
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
@@ -92,7 +92,11 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     margin: 20,
-    backgroundColor: 'purple'
+    backgroundColor: '#33266A',
+    color: 'white',
+    padding: 10,
+    justifyContent: 'center',
+    borderRadius: 15,
   },
 });
 
