@@ -24,7 +24,7 @@ const ContactListItem = (props: ContactListItemProps) => {
                 graphqlOperation(
                     createChatRoom, {
                         input: {
-                            lastMessageId: "1"
+                            lastMessageID: "1"
                         }
                     }
                 )
