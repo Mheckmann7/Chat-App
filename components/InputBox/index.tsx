@@ -1,10 +1,10 @@
-import { MaterialIcons } from '@expo/vector-icons';
+import { createIconSetFromFontello, MaterialIcons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { View, TextInput, Text} from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles';
 import { API, Auth, graphqlOperation } from 'aws-amplify';
-import { createMessage } from '../../src/graphql/mutations';
+import { createMessage, updateChatRoom } from '../../src/graphql/mutations';
 
 const InputBox = (props) => {
 
@@ -21,6 +21,23 @@ const InputBox = (props) => {
         fetchUser();
         }, [])
     
+    const updateLastMessage = async (messageId: string) => {
+        try {
+            await API.graphql(
+                graphqlOperation(
+                    updateChatRoom, {
+                    input: {
+                        id: chatRoomID,
+                        lastMessageID: messageId,
+                    }
+                }
+                )
+            );
+        } catch(error) {
+            console.log(error)
+        }
+    }
+    
     const onPress = async () => {
         try {
             const newMessageData = await API.graphql(
@@ -34,7 +51,7 @@ const InputBox = (props) => {
                     }
                 )
             )
-            console.log(newMessageData)
+            await updateLastMessage(newMessageData.data.createMessage.id)
         } catch (error) {
             console.log(error);
         }

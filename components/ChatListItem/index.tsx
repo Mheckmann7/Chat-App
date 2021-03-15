@@ -15,6 +15,8 @@ const ChatListItem = (props: ChatListItemProps) => {
     const { chatRoom } = props;
     const [otherUser, setOtherUser] = useState(null);
     const navigation = useNavigation();
+
+
    // const user = chatRoom.chatRoomUsers.items[0].user;
     //filter put users that are not ourself
 
@@ -49,7 +51,7 @@ const ChatListItem = (props: ChatListItemProps) => {
      
                 <View style={styles.midContainer}> 
                     <Text style={styles.userName}>{otherUser.name}</Text>
-                    <Text style={styles.lastMsg}>{chatRoom.lastMessage ? chatRoom.lastMessage.content: ""}</Text>
+                    <Text style={styles.lastMsg}>{chatRoom.lastMessage ? `${chatRoom.lastMessage.content}`: ""}</Text>
                 </View>
             </View>
             <Text style={styles.time}>
