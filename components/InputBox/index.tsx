@@ -1,6 +1,6 @@
 import { createIconSetFromFontello, MaterialIcons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, Text} from "react-native";
+import { View, TextInput, KeyboardAvoidingView} from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles';
 import { API, Auth, graphqlOperation } from 'aws-amplify';
@@ -75,7 +75,7 @@ const InputBox = (props) => {
                 <MaterialIcons name="send" size={28} color="white"/>
             </View>
             </TouchableOpacity>
-        </View>
+            </View>
     )
 }
 

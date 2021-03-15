@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, ImageBackground, View } from 'react-native';
+import { FlatList, ImageBackground, KeyboardAvoidingView, Platform, View } from 'react-native';
 import background from '../assets/images/background.jpg'
 import { useRoute } from '@react-navigation/native';
 
@@ -56,6 +56,11 @@ const ChatRoomScreen = () => {
     }, [messages])
 
     return (
+        <KeyboardAvoidingView
+            behavior={Platform.OS == 'ios' ? "padding" : "height"}
+            keyboardVerticalOffset={100}
+            style={{width: '100%', height: '100%'}}
+        >
         <ImageBackground style={{ width: '100%', height: '100%' }} source={background}>
         <FlatList
             data={messages}
@@ -63,7 +68,8 @@ const ChatRoomScreen = () => {
             inverted
         />
             <InputBox chatRoomID={route.params.id}/>
-        </ImageBackground>
+            </ImageBackground>
+        </KeyboardAvoidingView>
     );
 }
 
