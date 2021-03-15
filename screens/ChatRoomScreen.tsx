@@ -7,6 +7,7 @@ import ChatMessage from '../components/ChatMessage';
 import InputBox from '../components/InputBox';
 import { API, graphqlOperation, SortDirection, Auth } from 'aws-amplify';
 import { messagesByChatRoom } from '../src/graphql/queries'
+import { onCreateMessage } from '../src/graphql/subscriptions'
 
 const ChatRoomScreen = () => {
 
@@ -38,6 +39,23 @@ const ChatRoomScreen = () => {
         }
         getMyId();
     }, [])
+
+    useEffect(() => {
+        const subscription = API.graphql(
+            graphqlOperation(onCreateMessage)
+                ).subscribe({
+                next: (data) => {
+                    const newMessage = data.value.data.onCreateMessage;
+                        if (newMessage.chatRoomID !== route.params.id) {
+                            return; 
+                        }
+                        //ADD message to the state
+                        //put [messages] in the dependence array of UseEffect.
+                        setMessages([newMessage, ...messages]);
+                }
+            });
+        return() => subscription.unsubscribe();
+    }, [messages])
 
     return (
         <ImageBackground style={{ width: '100%', height: '100%' }} source={background}>
