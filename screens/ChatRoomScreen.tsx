@@ -49,8 +49,6 @@ const ChatRoomScreen = () => {
                         if (newMessage.chatRoomID !== route.params.id) {
                             return; 
                         }
-                        //ADD message to the state
-                        //put [messages] in the dependence array of UseEffect.
                         setMessages([newMessage, ...messages]);
                 }
             });
